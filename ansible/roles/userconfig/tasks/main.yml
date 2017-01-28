@@ -1,7 +1,7 @@
 #Create a new user
 - name: Create user visier
   user:
-    name: visier
+    name: muratso
     append: yes
     groups: sudo
     state: present
@@ -10,4 +10,4 @@
 
 #Force the user to change the password on first login
 - name: Force password change
-  command: chage -d 0 visier
+  command: chage -d 0 muratso
