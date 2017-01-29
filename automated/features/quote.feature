@@ -26,7 +26,6 @@ Feature: Quote insurance
       And I fill in "home_order_flow_property_data_property_attributes_address_attributes_number" with "22"
       And I fill in "home_order_flow_property_data_property_attributes_address_attributes_complement" with "Casa"
       And I submit the form
-    Then I should see "Aee! Estamos quase lá."
     When I fill in "home_order_flow_insured_person_data_insured_person_attributes_name" with "Eric Carlos Silva Ferreira"
       And I select gender
       And I fill in "home_order_flow_insured_person_data_insured_person_attributes_cpf" with "03674784122"
