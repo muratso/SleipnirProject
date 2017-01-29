@@ -25,7 +25,7 @@ require 'selenium-webdriver'
 $PASSWORD = ENV['PASSWORD']
 $USERNAME = ENV['USERNAME']
 
-
+Capybara.default_wait_time = 5
 Capybara.default_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   options = {
