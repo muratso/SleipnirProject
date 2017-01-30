@@ -1,5 +1,3 @@
-require "/Users/Muratso/Projects/SleipnirProject/automated/features/support/wait_for_ajax"
-
 Given(/^I am on the home page$/) do
   puts visit "http://youse.com.br"
 end
