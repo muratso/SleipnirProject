@@ -1,0 +1,11 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9ynwgBQBWK8efwAAAAA==[0myouse
+Building in workspace /var/jenkins_home/workspace/Teste
+[Teste] $ /bin/sh -xe /tmp/hudson1513196843247301190.sh
++ docker ps
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                               NAMES
+0ce37241e5d2        merapar/jenkins-container   "/bin/tini -- /usr/lo"   3 minutes ago       Up 3 minutes        0.0.0.0:8080->8080/tcp, 50000/tcp   optimistic_lovelace
++ docker images
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+merapar/jenkins-container   latest              02b74b13bc40        7 days ago          1.022 GB
+merapar/jenkins-container   <none>              02b74b13bc40        7 days ago          1.022 GB
+Finished: SUCCESS

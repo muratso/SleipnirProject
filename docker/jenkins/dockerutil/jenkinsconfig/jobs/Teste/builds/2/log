@@ -1,0 +1,21 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9ynwgBQBWK8efwAAAAA==[0myouse
+Building in workspace /var/jenkins_home/workspace/Teste
+Cloning the remote Git repository
+Cloning repository https://github.com/muratso/SleipnirProject.git
+ > git init /var/jenkins_home/workspace/Teste # timeout=10
+Fetching upstream changes from https://github.com/muratso/SleipnirProject.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/muratso/SleipnirProject.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/muratso/SleipnirProject.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/muratso/SleipnirProject.git # timeout=10
+Fetching upstream changes from https://github.com/muratso/SleipnirProject.git
+ > git fetch --tags --progress https://github.com/muratso/SleipnirProject.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision cb5841aab981a1d31c699cde8b9777528c9e87f9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f cb5841aab981a1d31c699cde8b9777528c9e87f9
+First time build. Skipping changelog.
+[Teste] $ /bin/sh -xe /tmp/hudson2897433137144343977.sh
+Finished: SUCCESS
