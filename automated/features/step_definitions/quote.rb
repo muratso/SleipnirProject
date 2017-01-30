@@ -30,12 +30,22 @@ When(/^I select salary$/) do
   find("#home_order_flow_insured_person_data_insured_person_attributes_salary_range").find(:xpath, 'option[3]').select_option
 end
 
+When(/^I fill my birthdate in "([^"]*)"$/) do |element|
+  sleep(1)
+  page.find(element).set "23041993"
+  page.find(element).native.send_keys(:enter)
+end
+
 When(/^I select option containing "([^"]*)" in the autocomplete$/) do |text|
-  sleep(2)
-  find(".select2-selection select2-selection--single").click
+  sleep(1)
+  find("#home_order_flow_insured_person_data_insured_person_attributes_nationality").find(:xpath, 'option[32]').select_option
+  sleep(1)
+  find("#home_order_flow_insured_person_data_insured_person_attributes_country_of_residence").find(:xpath, 'option[32]').select_option
+  sleep(1)
+  find(:xpath, "//span[@id='select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-container']").click
   textbox = find(:xpath, "//input[@class='select2-search__field']")
   textbox.set "#{text}"
-  sleep(2)
+  sleep(1)
   #find(:xpath, "//li[@class='select2-results__option']").click
   page.find(:css, ".select2-results ul li", :text => text).click
 end

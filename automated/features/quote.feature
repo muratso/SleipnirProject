@@ -29,7 +29,8 @@ Feature: Quote insurance
     When I fill in "home_order_flow_insured_person_data_insured_person_attributes_name" with "Eric Carlos Silva Ferreira"
       And I select gender
       And I fill in "home_order_flow_insured_person_data_insured_person_attributes_cpf" with "03674784122"
-      And I fill in "home_order_flow_insured_person_data_insured_person_attributes_date_of_birth" with "23/04/1993"
+      And I fill my birthdate in "#home_order_flow_insured_person_data_insured_person_attributes_date_of_birth"
+      #And I fill in "home_order_flow_insured_person_data_insured_person_attributes_date_of_birth" with "23/04/1993"
       And I select option containing "Analista de sistemas" in the autocomplete
       And I select salary
       And I submit the form
