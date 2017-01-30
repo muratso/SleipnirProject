@@ -1,6 +1,6 @@
 FROM ruby
 
-RUN apt-get update && apt-get install -y wget sudo build-essential chrpath libssl-dev libxft-dev libfontconfig libreadline6-dev curl git libffi-dev git-core libpq-dev --fix-missing
+RUN apt-get install -y wget
 
 ## Instalando o PhantomJS
 RUN cd /tmp \
