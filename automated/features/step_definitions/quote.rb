@@ -32,7 +32,7 @@ end
 
 When(/^I select option containing "([^"]*)" in the autocomplete$/) do |text|
   sleep(2)
-  find("#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-container").click
+  find(".select2-selection select2-selection--single").click
   textbox = find(:xpath, "//input[@class='select2-search__field']")
   textbox.set "#{text}"
   sleep(2)
