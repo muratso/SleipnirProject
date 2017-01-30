@@ -15,7 +15,7 @@ RUN apt-get update \
 ARG docker_version=1.13.0
 RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get purge -y docker-engine && \
-    apt-get install docker-engine=${docker_version}-0~jessie
+    apt-get install docker-engine=${docker_version}-0~debian-jessie
 
 # Make sure jenkins user has docker privileges
 RUN usermod -aG docker jenkins
