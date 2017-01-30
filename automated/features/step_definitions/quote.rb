@@ -31,10 +31,11 @@ When(/^I select salary$/) do
 end
 
 When(/^I select option containing "([^"]*)" in the autocomplete$/) do |text|
-  sleep(1)
+  sleep(2)
   find("#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-container").click
   textbox = find(:xpath, "//input[@class='select2-search__field']")
   textbox.set "#{text}"
+  sleep(2)
   #find(:xpath, "//li[@class='select2-results__option']").click
   page.find(:css, ".select2-results ul li", :text => text).click
 end
