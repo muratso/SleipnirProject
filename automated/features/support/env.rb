@@ -1,8 +1,9 @@
 require "Capybara"
 require "Capybara/cucumber"
 require "rspec"
-require 'capybara/poltergeist'
-require 'selenium-webdriver'
+require "capybara/poltergeist"
+require "selenium-webdriver"
+
 
 # Capybara.default_driver = :chrome
 # Capybara.register_driver :chrome do |app|
