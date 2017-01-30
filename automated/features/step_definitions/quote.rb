@@ -34,6 +34,7 @@ When(/^I fill my birthdate in "([^"]*)"$/) do |element|
   sleep(1)
   page.find(element).set "23041993"
   page.find(element).native.send_keys(:enter)
+  sleep(1)
 end
 
 When(/^I select option containing "([^"]*)" in the autocomplete$/) do |text|
