@@ -1,0 +1,156 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9ynwgBQBWK8efwAAAAA==[0myouse
+Building in workspace /var/jenkins_home/workspace/SleipnirTest
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/muratso/SleipnirProject.git # timeout=10
+Fetching upstream changes from https://github.com/muratso/SleipnirProject.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/muratso/SleipnirProject.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 364c0a94f25d25a770776b7f46fc2a8db2f8c71c (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 364c0a94f25d25a770776b7f46fc2a8db2f8c71c
+ > git rev-list 364c0a94f25d25a770776b7f46fc2a8db2f8c71c # timeout=10
+[SleipnirTest] $ /bin/sh -xe /tmp/hudson8173827472679271038.sh
++ docker run sleipnir/automated testingasidjasj@temp.com.br abcd1234 features/newuser.feature,features/quote.feature
+Fetching gem metadata from http://rubygems.org/........
+Fetching version metadata from http://rubygems.org/.
+Installing public_suffix 2.0.4
+Installing builder 3.2.2
+Installing mime-types-data 3.2016.0521
+Installing mini_portile2 2.1.0
+Installing rack 2.0.1
+Installing ffi 1.9.14 with native extensions
+Installing cliver 0.3.2
+Installing gherkin 4.0.0
+Installing cucumber-wire 0.0.1
+Installing diff-lcs 1.2.5
+Installing multi_json 1.12.1
+Installing multi_test 0.1.2
+Installing websocket-extensions 0.1.2
+Installing rspec-support 3.5.0
+Installing rubyzip 1.2.0
+Installing websocket 1.2.3
+Using bundler 1.14.3
+Installing addressable 2.5.0
+Installing mime-types 3.1
+Installing nokogiri 1.6.8.1 with native extensions
+Installing rack-test 0.6.3
+Installing childprocess 0.5.9
+Installing cucumber-core 1.5.0
+Installing websocket-driver 0.6.4 with native extensions
+Installing rspec-core 3.5.4
+Installing rspec-expectations 3.5.0
+Installing rspec-mocks 3.5.0
+Installing xpath 2.0.0
+Installing selenium-webdriver 3.0.1
+Installing cucumber 2.4.0
+Installing rspec 3.5.0
+Installing capybara 2.10.1
+Installing poltergeist 1.11.0
+Bundle complete! 5 Gemfile dependencies, 33 gems now installed.
+Bundled gems are installed into /usr/local/bundle.
+/automated
+total 20
+drwxr-xr-x  3 root root 4096 Jan 31 11:23 .
+drwxr-xr-x 63 root root 4096 Jan 31 11:23 ..
+-rwxr-xr-x  1 root root  123 Jan 30 23:54 Gemfile
+-rwxr-xr-x  1 root root 1911 Jan 30 23:54 Gemfile.lock
+drwxr-xr-x  4 root root 4096 Jan 30 23:54 features
+Feature: New User
+  This feature should create a new user
+
+  Scenario: View Home Page                 # features/newuser.feature:4
+    Given I am on the home page            # features/step_definitions/user.rb:1
+      {"status"=>"success"}
+    Then I should see "Olá, somos a Youse" # features/step_definitions/user.rb:5
+
+  Scenario: Open my account page                                     # features/newuser.feature:8
+    Given I am on the home page                                      # features/step_definitions/user.rb:1
+      {"status"=>"success"}
+    Then I should see "MINHA CONTA"                                  # features/step_definitions/user.rb:5
+Direct
+    When I press "MINHA CONTA" button                                # features/step_definitions/user.rb:9
+    Then I should see "Faça seu login para acessar sua conta Youse." # features/step_definitions/user.rb:5
+
+  Scenario: Create a new account                                           # features/newuser.feature:14
+    Given I am on the home page                                            # features/step_definitions/user.rb:1
+      {"status"=>"success"}
+    Then I should see "MINHA CONTA"                                        # features/step_definitions/user.rb:5
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    When I press "MINHA CONTA" button                                      # features/step_definitions/user.rb:9
+    Then I should see "CADASTRE-SE"                                        # features/step_definitions/user.rb:5
+    When I press "Cadastre-se"                                             # features/step_definitions/user.rb:13
+    Then I should see "Cadastre-se para ser um Youser"                     # features/step_definitions/user.rb:5
+    When I fill in "user_name" with "John Doe"                             # features/step_definitions/user.rb:17
+    And I fill login user "user_email"                                     # features/step_definitions/user.rb:22
+    And I fill login password "user_password"                              # features/step_definitions/user.rb:27
+    And I fill login password "user_password_confirmation"                 # features/step_definitions/user.rb:27
+Direct
+    And I press "enviar cadastro"                                          # features/step_definitions/user.rb:13
+    Then I should see "Bem vindo! Você realizou seu registro com sucesso." # features/step_definitions/user.rb:5
+
+Feature: Quote insurance
+
+  Scenario: It should quote a home insurance                                                                              # features/quote.feature:3
+    Given I am on the home page                                                                                           # features/step_definitions/user.rb:1
+      {"status"=>"success"}
+Direct
+    When I press "Saiba mais sobre Seguro Residencial"                                                                    # features/step_definitions/user.rb:13
+    Then I should see "Sua casa é do seu jeito"                                                                           # features/step_definitions/user.rb:5
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    When I press "Cotação Online"                                                                                         # features/step_definitions/user.rb:13
+    Then I should see "Oi. A gente quer te conhecer melhor, é rapidinho."                                                 # features/step_definitions/user.rb:5
+    When I select the radio "house"                                                                                       # features/step_definitions/quote.rb:12
+    Then I should see "que fica no estado"                                                                                # features/step_definitions/user.rb:5
+    When I select the option                                                                                              # features/step_definitions/quote.rb:18
+    Then I should see "no valor aproximado de"                                                                            # features/step_definitions/user.rb:5
+    When I fill in "home_order_flow_pricing_requirements_property_attributes_price" with "20000"                          # features/step_definitions/user.rb:17
+    And I fill in "home_order_flow_pricing_requirements_lead_person_attributes_name" with "Eric"                          # features/step_definitions/user.rb:17
+    Then I should see "e fale comigo no"                                                                                  # features/step_definitions/user.rb:5
+    When I fill in "home_order_flow_pricing_requirements_lead_person_attributes_phone" with "11999999999"                 # features/step_definitions/user.rb:17
+    And I fill in "email" with "johndoe@testmail.com.br"                                                                  # features/step_definitions/user.rb:17
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    When I submit the form                                                                                                # features/step_definitions/quote.rb:1
+    Then I should see "Essa é a parte mais legal:"                                                                        # features/step_definitions/user.rb:5
+    When I move slider in "home/coverage/1"                                                                               # features/step_definitions/quote.rb:6
+document not ready yet, trying again in 500 milliseconds...
+document not ready yet, trying again in 500 milliseconds...
+document not ready yet, trying again in 500 milliseconds...
+document not ready yet, trying again in 500 milliseconds...
+Toggle
+Direct
+    When I submit the form                                                                                                # features/step_definitions/quote.rb:1
+    Then I should see "Sugestões de Assistências Youse para você."                                                        # features/step_definitions/user.rb:5
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    When I submit the form                                                                                                # features/step_definitions/quote.rb:1
+    Then I should see "Legal! Agora precisamos saber algumas informações sobre o imóvel"                                  # features/step_definitions/user.rb:5
+    When I fill in "home_order_flow_property_data_property_attributes_address_attributes_zipcode" with "72600119"         # features/step_definitions/user.rb:17
+    And I fill in "home_order_flow_property_data_property_attributes_address_attributes_number" with "22"                 # features/step_definitions/user.rb:17
+    And I fill in "home_order_flow_property_data_property_attributes_address_attributes_complement" with "Casa"           # features/step_definitions/user.rb:17
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    And I submit the form                                                                                                 # features/step_definitions/quote.rb:1
+    When I fill in "home_order_flow_insured_person_data_insured_person_attributes_name" with "Eric Carlos Silva Ferreira" # features/step_definitions/user.rb:17
+    And I select gender                                                                                                   # features/step_definitions/quote.rb:23
+    And I fill in "home_order_flow_insured_person_data_insured_person_attributes_cpf" with "03674784122"                  # features/step_definitions/user.rb:17
+    And I fill my birthdate in "#home_order_flow_insured_person_data_insured_person_attributes_date_of_birth"             # features/step_definitions/quote.rb:33
+document not ready yet, trying again in 500 milliseconds...
+Direct
+      #And I fill in "home_order_flow_insured_person_data_insured_person_attributes_date_of_birth" with "23/04/1993"
+    And I select option containing "Analista de sistemas" in the autocomplete                                             # features/step_definitions/quote.rb:39
+    And I select salary                                                                                                   # features/step_definitions/quote.rb:28
+document not ready yet, trying again in 500 milliseconds...
+Direct
+    And I submit the form                                                                                                 # features/step_definitions/quote.rb:1
+    Then I should see "Para finalizar, insira os dados de pagamento."                                                     # features/step_definitions/user.rb:5
+
+4 scenarios (4 passed)
+51 steps (51 passed)
+1m19.662s
+Finished: SUCCESS

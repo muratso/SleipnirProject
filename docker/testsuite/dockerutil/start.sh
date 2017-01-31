@@ -8,5 +8,6 @@ ls -la
 
 USERNAME="USERNAME=$1"
 PASSWORD="PASSWORD=$2"
+FEATURE="$(echo $3 | sed 's/\,/ /g')"
 
-bundle exec cucumber $USERNAME $PASSWORD features/newuser.feature features/login.feature features/quote.feature
+bundle exec cucumber $USERNAME $PASSWORD $FEATURE
