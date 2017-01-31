@@ -1,15 +1,9 @@
-When (/^I submit the form$/) do
-  sleep(1)
-  find(:xpath, "//*[@type='submit']").click
-end
-
 When(/^I move slider in "([^"]*)"$/) do |element|
   sleep(1)
   find(:xpath, "//li[@data-id='#{element}']").find(:xpath, ".//input[@id='coverages__selected_lmi']").set 400000
-  #find(:xpath, "//li[@data-id='#{element}']").find(:xpath, ".//input[@id='coverages__selected_lmi']")
 end
 
-When(/^I select the radio "([^"]*)"$/) do |element|
+When(/^I select the house option$/) do
   option = find(:xpath, "//label[@for='home_order_flow_pricing_requirements_property_attributes_type_house']")
   sleep(1)
   option.click

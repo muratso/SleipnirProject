@@ -4,7 +4,7 @@ Feature: Login/Logout
   Scenario: Login
     Given I am on the home page
     Then I should see "MINHA CONTA"
-    When I press "MINHA CONTA" button
+    When I press "MINHA CONTA"
     Then I should see "Faça seu login para acessar sua conta Youse."
     When I fill login user "email"
       And I press "próximo passo"

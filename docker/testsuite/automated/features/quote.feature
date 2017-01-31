@@ -6,7 +6,7 @@ Feature: Quote insurance
     Then I should see "Sua casa é do seu jeito"
     When I press "Cotação Online"
     Then I should see "Oi. A gente quer te conhecer melhor, é rapidinho."
-    When I select the radio "house"
+    When I select the house option
     Then I should see "que fica no estado"
     When I select the option
     Then I should see "no valor aproximado de"
@@ -30,7 +30,6 @@ Feature: Quote insurance
       And I select gender
       And I fill in "home_order_flow_insured_person_data_insured_person_attributes_cpf" with "03674784122"
       And I fill my birthdate in "#home_order_flow_insured_person_data_insured_person_attributes_date_of_birth"
-      #And I fill in "home_order_flow_insured_person_data_insured_person_attributes_date_of_birth" with "23/04/1993"
       And I select option containing "Analista de sistemas" in the autocomplete
       And I select salary
       And I submit the form
