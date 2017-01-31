@@ -10,9 +10,9 @@ RUN cd /tmp \
  && ls -la /tmp \
  && rm -rf /tmp/*
 
-WORKDIR /automated
-
 ADD ./dockerutil/start.sh /start.sh
+ADD ./automated /automated
 RUN chmod 755 /start.sh
 
-ENTRYPOINT ["/start.sh"] 
+ENTRYPOINT ["/bin/bash","/start.sh"] 
+
