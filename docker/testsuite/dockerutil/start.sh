@@ -3,6 +3,9 @@
 cd /automated
 bundle install
 
+pwd
+ls -la
+
 USERNAME="USERNAME=$1"
 PASSWORD="PASSWORD=$2"
 
