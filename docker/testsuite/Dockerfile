@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y wget sudo build-essential chrpath libss
 
 ## Instalando o PhantomJS
 RUN cd /tmp \
- && wget -O phantomjs.tar.bz2 "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2" \
+ && wget -O phantomjs.tar.bz2 "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2" --auth-no-challenge \
  && tar xvjf phantomjs.tar.bz2 --strip 1 \
  && cp /tmp/bin/phantomjs /usr/local/bin/phantomjs \
  && ls -la /tmp \
