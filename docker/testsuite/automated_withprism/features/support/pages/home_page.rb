@@ -2,7 +2,7 @@ class HomePage < SitePrism::Page
   set_url "https://youse.com.br"
 
   element :btn_my_account, "a[href='https://www.youse.com.br/account']"
-  element :about_home_insurance, "a[href='https://www.youse.com.br/seguro-residencial']"
+  element :about_home_insurance, "a[title='Saiba mais sobre Seguro Residencial']"
   element :headline_message, "section[class='headline text-center']"
 
   def open_my_account

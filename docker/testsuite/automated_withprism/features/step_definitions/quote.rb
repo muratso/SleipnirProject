@@ -7,7 +7,7 @@ Given(/^I am on the quote page$/) do
 end
 
 Then(/^I should see home insurance ad$/) do
-  expect(@quote.product_banne).to have_content("Sua casa é do seu jeito")
+  expect(@quote.product_banner).to have_content("Sua casa é do seu jeito")
 end
 
 When(/^I press online quote button$/) do

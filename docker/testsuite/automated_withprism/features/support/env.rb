@@ -11,21 +11,24 @@ require 'selenium-webdriver'
 require 'site_prism'
 require_relative 'pages/all_page_objects'
 
-Capybara.configure do |config|
-  config.default_driver = :poltergeist
-  config.javascript_driver = :poltergeist
-  config.run_server = false
-  config.default_selector = :css
-  config.default_max_wait_time = 10
-
-  # capybara 2.1 config options
-  config.match = :prefer_exact
-  config.ignore_hidden_elements = false
-end
+# Capybara.configure do |config|
+#   config.default_driver = :poltergeist
+#   config.javascript_driver = :poltergeist
+#   config.run_server = false
+#   config.default_selector = :css
+#   config.default_max_wait_time = 10
+#
+#   # capybara 2.1 config options
+#   config.match = :prefer_exact
+#   config.ignore_hidden_elements = false
+# end
 
 $PASSWORD = ENV['PASSWORD']
 $USERNAME = ENV['USERNAME']
-
+Capybara.default_driver = :poltergeist
+Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 10
+Capybara.default_selector = :css
 Capybara.register_driver :poltergeist do |app|
   options = {
       :js_errors => false,

@@ -1,7 +1,7 @@
 class QuotePage < SitePrism::Page
   set_url "https://www.youse.com.br/seguro-residencial"
 
-  element :product_banne, "div.product-banner__card"
+  element :product_banner, "div.product-banner__card"
   element :online_quote_button, "a[href='https://www.youse.com.br/home/order/new']"
   element :first_step_greeting, "h2.h2.section-vertical-spacing"
   element :house_option, "label[for='home_order_flow_pricing_requirements_property_attributes_type_house']"
@@ -28,7 +28,7 @@ class QuotePage < SitePrism::Page
   element :birthdate, "input#home_order_flow_insured_person_data_insured_person_attributes_date_of_birth"
   element :occupation, "span.select2-selection__placeholder"
   element :occupation_field, "input.select2-search__field"
-  #element :occupation_result, "#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-result-n5cl-999013"
+  element :occupation_result, "#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-result-n5cl-999013"
   element :salary_range, "select#home_order_flow_insured_person_data_insured_person_attributes_salary_range"
   element :payment_button, "button[type='submit']"
   element :payment_instruction, "h2.summary-credit-card__title"
@@ -48,7 +48,6 @@ class QuotePage < SitePrism::Page
 
   def fill_forth_step
     self.zip_code.set "72600-119"
-    self.zip_code.native.send_keys(:enter)
     self.address.set "Quadra 101 Conjunto 15"
     self.neighborhood.set "Recanto das Emas"
     self.city.set "Brasília"
@@ -58,16 +57,25 @@ class QuotePage < SitePrism::Page
 
   def fill_fifth_step
     self.full_name.set "Eric Carlos Silva Ferreira"
-    self.full_name.native.send_keys(:enter)
+    sleep(2)
+    page.save_screenshot("Name.png")
     self.gender.select("Masculino")
+    sleep(2)
+    page.save_screenshot("gender.png")
     self.cpf.set "03674784122"
-    self.cpf.native.send_keys(:enter)
+    sleep(2)
+    page.save_screenshot("cpf.png")
     self.birthdate.set "23/04/1993"
-    self.birthdate.native.send_keys(:enter)
+    self.birthdate.send_keys(:enter)
+    sleep(2)
+    page.save_screenshot("birth.png")
     self.occupation.click
     self.occupation_field.set "Analista de sistemas"
+    sleep(1)
     self.occupation_field.send_keys(:enter)
     sleep(2)
+    self.salary_range.select("De R$ 2.500,01 a R$ 4.500,00")
+    page.save_screenshot("click.png")
   end
 
 end
