@@ -49,7 +49,6 @@ else
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(
         app,
-        :phantomjs => Phantomjs.path,
         inspector: true,
         js_errors: false,
         window_size: [1280, 1024],

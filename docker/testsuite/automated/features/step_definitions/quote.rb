@@ -51,7 +51,7 @@ When(/^I should see the fifth step greeting message$/) do
 end
 
 When(/^I fill the fifth step form$/) do
-  @quote.fill_fifth_step
+  @quote.fill_fifth_step "Eric Carlos Silva Ferreira"
 end
 
 When(/^I click on payment button$/) do
@@ -60,4 +60,12 @@ end
 
 When(/^I should see the payment instruction$/) do
   expect(@quote.payment_instruction).to have_content("Para finalizar, insira os dados de pagamento.")
+end
+
+Then(/^I should see the cpf error message$/) do
+  expect(@quote.error_message).to have_content("Nome deve ser igual ao CPF")
+end
+
+When(/^I fill the fifth step form with wrong information$/) do
+  @quote.fill_fifth_step "Eric Ferreira"
 end

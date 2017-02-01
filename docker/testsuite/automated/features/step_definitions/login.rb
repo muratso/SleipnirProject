@@ -29,3 +29,11 @@ end
 Then(/^I should login and see my user page$/) do
   expect(@my_account.notification_message).to have_content("Login efetuado com sucesso.")
 end
+
+Then(/^I should see the login error message$/) do
+  expect(@my_account.notification_message).to have_content("Email ou senha inválidos.")
+end
+
+When(/^I fill the password field with an invalid password$/) do
+  @my_account.fill_password("odaosjdoasj%ˆ*&@ôs")
+end

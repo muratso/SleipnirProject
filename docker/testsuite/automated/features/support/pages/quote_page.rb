@@ -32,6 +32,7 @@ class QuotePage < SitePrism::Page
   element :salary_range, "select#home_order_flow_insured_person_data_insured_person_attributes_salary_range"
   element :payment_button, "button[type='submit']"
   element :payment_instruction, "h2.summary-credit-card__title"
+  element :error_message, "ul.form__error-messages"
 
   def fill_first_step
     self.house_option.click
@@ -55,8 +56,8 @@ class QuotePage < SitePrism::Page
     self.address_complement.set "Casa"
   end
 
-  def fill_fifth_step
-    self.full_name.set "Eric Carlos Silva Ferreira"
+  def fill_fifth_step myname
+    self.full_name.set myname
     sleep(2)
     self.gender.select("Masculino")
     sleep(2)

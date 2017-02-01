@@ -15,3 +15,13 @@ Feature: Login/Logout
     Then I should see the greetings message
     When I pass mouse over the greetings message and click Sair
     Then I should be back to homepage
+
+
+  Scenario: Try to login with an invalid user
+    Given I am on Minha Conta page
+    Then I should see the instruction message
+    When I fill the username field
+      And I click on Proximo Passo
+      And I fill the password field with an invalid password
+      And I click on Entrar
+    Then I should see the login error message

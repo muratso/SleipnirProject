@@ -9,6 +9,7 @@ class MyAccountPage < SitePrism::Page
   element :greetings_message, "a.account-header__account-link.account-header__account-with-sub-menu"
   element :logout_button, "a#track_logout"
 
+
   def click_on_sign_up
     self.sign_up.click
     SignUpPage.new
