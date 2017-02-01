@@ -67,11 +67,13 @@ class QuotePage < SitePrism::Page
     self.birthdate.send_keys(:enter)
     sleep(2)
     self.occupation.click
+    sleep(3)
     self.occupation_field.set "Analista de sistemas"
     sleep(1)
     self.occupation_field.send_keys(:enter)
     sleep(2)
     self.salary_range.select("De R$ 2.500,01 a R$ 4.500,00")
+    sleep(2)
   end
 
 end

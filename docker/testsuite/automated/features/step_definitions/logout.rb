@@ -27,5 +27,5 @@ Then(/^I pass mouse over the greetings message and click Sair$/) do
 end
 
 Then(/^I should be back to homepage$/) do
-  expect(@my_account.current_url).to be("https://www.youse.com.br")
+  expect(@my_account.current_url).to eq("https://www.youse.com.br")
 end

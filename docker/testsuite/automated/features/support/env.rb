@@ -51,8 +51,7 @@ else
         app,
         inspector: true,
         js_errors: false,
-        window_size: [1280, 1024],
-        phantomjs_options: ['--ignore-ssl-errors=yes','--ssl-protocol=tlsv1'],
+        phantomjs_options: ['--ignore-ssl-errors=yes','--ssl-protocol=tlsv1','--load-images=no', '--disk-cache=false'],
         debug: false
     )
   end
