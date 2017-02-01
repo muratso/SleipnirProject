@@ -60,6 +60,7 @@ else
   Capybara.javascript_driver = :poltergeist
   Capybara.ignore_hidden_elements = false
   Capybara.default_selector = :css
+  Capybara.match = :prefer_exact
 end
 
 

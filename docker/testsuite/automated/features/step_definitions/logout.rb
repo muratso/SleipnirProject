@@ -4,7 +4,7 @@ Given(/^I am logged in$/) do
 
   @home_page.open_my_account
 
-  @my_account = MyAccount.new
+  @my_account = MyAccountPage.new
   expect(@my_account.current_url).to end_with("/users/email_verifications/new")
 
   @my_account.fill_email($USERNAME)
