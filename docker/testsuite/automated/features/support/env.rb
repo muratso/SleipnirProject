@@ -9,7 +9,6 @@ require 'rspec'
 require 'capybara/poltergeist'
 require 'selenium-webdriver'
 require 'site_prism'
-require 'phantomjs'
 require_relative 'pages/all_page_objects'
 
 # Capybara.configure do |config|
