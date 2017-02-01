@@ -4,7 +4,7 @@ Given(/^I am on Cadastre\-se page$/) do
 
   @my_account = @home_page.open_my_account
   @sign_up = @my_account.click_on_sign_up
-  expect(@sign_up.current_url).to end_with("/users/sign_up")
+
 end
 
 Then(/^I should see sign up message$/) do

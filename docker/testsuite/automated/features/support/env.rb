@@ -9,6 +9,7 @@ require 'rspec'
 require 'capybara/poltergeist'
 require 'selenium-webdriver'
 require 'site_prism'
+require 'phantomjs'
 require_relative 'pages/all_page_objects'
 
 # Capybara.configure do |config|
@@ -23,37 +24,49 @@ require_relative 'pages/all_page_objects'
 #   config.ignore_hidden_elements = false
 # end
 
+
 $PASSWORD = ENV['PASSWORD']
 $USERNAME = ENV['USERNAME']
-Capybara.default_driver = :poltergeist
-Capybara.javascript_driver = :poltergeist
-Capybara.default_max_wait_time = 10
-Capybara.default_selector = :css
-Capybara.register_driver :poltergeist do |app|
-  options = {
-      :js_errors => false,
-      :timeout => 120,
-      :debug => false,
-      :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
-      :inspector => true,
-  }
-  Capybara::Poltergeist::Driver.new(app, options)
+BROWSER = ENV['BROWSER']
+
+if BROWSER == "chrome"
+  puts "Executing tests on Chrome"
+  puts "----------------------------"
+  Capybara.default_driver = :chrome
+  Capybara.register_driver :chrome do |app|
+    options = {
+        :js_errors => false,
+        :timeout => 360,
+        :debug => false,
+        :inspector => false,
+    }
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+
+  Capybara.javascript_driver = :chrome
+else
+  puts "Executing tests on Phantomjs"
+  puts "----------------------------"
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(
+        app,
+        :phantomjs => Phantomjs.path,
+        inspector: true,
+        js_errors: false,
+        window_size: [1280, 1024],
+        phantomjs_options: ['--ignore-ssl-errors=yes','--ssl-protocol=tlsv1'],
+        debug: false
+    )
+  end
+  Capybara.default_driver = :poltergeist
+  Capybara.javascript_driver = :poltergeist
+  Capybara.ignore_hidden_elements = false
+  Capybara.default_selector = :css
 end
+
 
 
 SitePrism.configure do |config|
   config.use_implicit_waits = false
 end
 
-# Capybara.default_driver = :chrome
-# Capybara.register_driver :chrome do |app|
-#   options = {
-#       :js_errors => false,
-#       :timeout => 360,
-#       :debug => false,
-#       :inspector => false,
-#   }
-#   Capybara::Selenium::Driver.new(app, :browser => :chrome)
-# end
-#
-# Capybara.javascript_driver = :chrome

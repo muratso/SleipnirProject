@@ -58,24 +58,19 @@ class QuotePage < SitePrism::Page
   def fill_fifth_step
     self.full_name.set "Eric Carlos Silva Ferreira"
     sleep(2)
-    page.save_screenshot("Name.png")
     self.gender.select("Masculino")
     sleep(2)
-    page.save_screenshot("gender.png")
     self.cpf.set "03674784122"
     sleep(2)
-    page.save_screenshot("cpf.png")
     self.birthdate.set "23/04/1993"
     self.birthdate.send_keys(:enter)
     sleep(2)
-    page.save_screenshot("birth.png")
     self.occupation.click
     self.occupation_field.set "Analista de sistemas"
     sleep(1)
     self.occupation_field.send_keys(:enter)
     sleep(2)
     self.salary_range.select("De R$ 2.500,01 a R$ 4.500,00")
-    page.save_screenshot("click.png")
   end
 
 end
