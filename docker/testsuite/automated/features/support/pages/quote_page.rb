@@ -35,7 +35,7 @@ class QuotePage < SitePrism::Page
   element :error_message, "ul.form__error-messages"
 
 
-  def set_occupation value
+  def set_occupation occupation
     page.execute_script %Q{ $("select[id*='person_attributes_occupation']").select2('open')};
     find(".select2-search__field").set(occupation)
     within ".select2-results" do
