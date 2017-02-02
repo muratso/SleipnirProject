@@ -63,6 +63,7 @@ When(/^I should see the payment instruction$/) do
 end
 
 Then(/^I should see the cpf error message$/) do
+  page.save_screenshot("click.png")
   expect(@quote.error_message).to have_content("Nome deve ser igual ao CPF")
 end
 

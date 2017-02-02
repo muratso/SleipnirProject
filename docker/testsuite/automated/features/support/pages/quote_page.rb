@@ -26,13 +26,22 @@ class QuotePage < SitePrism::Page
   element :gender, "select#home_order_flow_insured_person_data_insured_person_attributes_gender"
   element :cpf, "input#home_order_flow_insured_person_data_insured_person_attributes_cpf"
   element :birthdate, "input#home_order_flow_insured_person_data_insured_person_attributes_date_of_birth"
-  element :occupation, "span.select2-selection__placeholder"
-  element :occupation_field, "input.select2-search__field"
-  element :occupation_result, "#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-result-n5cl-999013"
+  # element :occupation, "span.select2-selection__placeholder"
+  # element :occupation_field, "input.select2-search__field"
+  # element :occupation_result, "#select2-home_order_flow_insured_person_data_insured_person_attributes_occupation-result-n5cl-999013"
   element :salary_range, "select#home_order_flow_insured_person_data_insured_person_attributes_salary_range"
   element :payment_button, "button[type='submit']"
   element :payment_instruction, "h2.summary-credit-card__title"
   element :error_message, "ul.form__error-messages"
+
+
+  def set_occupation value
+    page.execute_script %Q{ $("select[id*='person_attributes_occupation']").select2('open')};
+    find(".select2-search__field").set(value)
+    within ".select2-results" do
+      find("li:first-child", text: value.capitalize).click
+    end
+  end
 
   def fill_first_step
     self.house_option.click
@@ -66,14 +75,11 @@ class QuotePage < SitePrism::Page
     self.birthdate.set "23/04/1993"
     self.birthdate.send_keys(:enter)
     sleep(2)
-    self.occupation.click
-    sleep(3)
-    self.occupation_field.set "Analista de sistemas"
-    sleep(1)
-    self.occupation_field.send_keys(:enter)
+    self.set_occupation "Administrador"
     sleep(2)
     self.salary_range.select("De R$ 2.500,01 a R$ 4.500,00")
     sleep(2)
   end
 
 end
+

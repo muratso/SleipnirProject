@@ -49,7 +49,7 @@ else
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(
         app,
-        inspector: true,
+        inspector: false,
         js_errors: false,
         phantomjs_options: ['--ignore-ssl-errors=yes','--ssl-protocol=tlsv1','--load-images=no', '--disk-cache=false'],
         debug: false
@@ -57,14 +57,15 @@ else
   end
   Capybara.default_driver = :poltergeist
   Capybara.javascript_driver = :poltergeist
-  Capybara.ignore_hidden_elements = false
+  #Capybara.ignore_hidden_elements = false
   Capybara.default_selector = :css
   Capybara.match = :prefer_exact
+  Capybara.default_max_wait_time = 15
 end
 
 
 
 SitePrism.configure do |config|
-  config.use_implicit_waits = false
+  config.use_implicit_waits = true
 end
 
