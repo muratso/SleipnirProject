@@ -37,9 +37,9 @@ class QuotePage < SitePrism::Page
 
   def set_occupation value
     page.execute_script %Q{ $("select[id*='person_attributes_occupation']").select2('open')};
-    find(".select2-search__field").set(value)
+    find(".select2-search__field").set(occupation)
     within ".select2-results" do
-      find("li:first-child", text: value.capitalize).click
+      find("li:first-child", text: occupation).click
     end
   end
 
@@ -76,10 +76,15 @@ class QuotePage < SitePrism::Page
     self.birthdate.send_keys(:enter)
     sleep(2)
     self.set_occupation "Administrador"
+
+    # self.occupation.click                                 ###This block of code substitute the method abode.
+    # self.occupation_field.set "Analista de sistemas"      ###However... because of some unknown reason
+    # sleep(1)                                              ###it doesn't work on poltergeist
+    # self.occupation_field.send_keys(:enter)
+
     sleep(2)
     self.salary_range.select("De R$ 2.500,01 a R$ 4.500,00")
     sleep(2)
   end
 
 end
-
